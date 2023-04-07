@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Magic Research Save Editor</title>
+	<script src="https://cdn.jsdelivr.net/npm/pako/dist/pako.min.js"></script>
+	<script src="js/script.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<style>
+		
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1>Magic Research Save Editor</h1>
+	</div>
+	<div class="container">
+		<div class="left"></div>
+		<div class="middle">
+			<div class="child" style="display: flex; justify-content: center;">
+				<textarea id="import_field" name="import_field" rows="5" cols="40" placeholder="Enter text here"></textarea>
+			</div>
+			<div class="child">
+				<button class="import-button" onclick="handleImport()">Import</button>
+				<button class="export-button">Export</button>
+			</div>
+			<div class="child">
+				<div class="text-fields-container">
+					<div class="column">
+						<label for="text-field-1">Label 1:</label>
+						<input type="text" id="text-field-1">
+						<label for="text-field-2">Label 2:</label>
+						<input type="text" id="text-field-2">
+						<label for="text-field-3">Label 3:</label>
+						<input type="text" id="text-field-3">
+						<label for="text-field-4">Label 4:</label>
+						<input type="text" id="text-field-4">
+						<label for="text-field-5">Label 5:</label>
+						<input type="text" id="text-field-5">
+						<label for="text-field-6">Label 6:</label>
+						<input type="text" id="text-field-6">
+					</div>
+					<div class="column">
+						<label for="text-field-7">Label 7:</label>
+						<input type="text" id="text-field-7">
+						<label for="text-field-8">Label 8:</label>
+						<input type="text" id="text-field-8">
+						<label for="text-field-9">Label 9:</label>
+						<input type="text" id="text-field-9">
+						<label for="text-field-10">Label 10:</label>
+						<input type="text" id="text-field-10">
+						<label for="text-field-11">Label 11:</label>
+						<input type="text" id="text-field-11">
+						<label for="text-field-12">Label 12:</label>
+						<input type="text" id="text-field-12">
+					</div>
+					<div class="column">
+						<label for="text-field-13">Label 13:</label>
+						<input type="text" id="text-field-13">
+						<label for="text-field-14">Label 14:</label>
+						<input type="text" id="text-field-14">
+						<label for="text-field-15">Label 15:</label>
+						<input type="text" id="text-field-15">
+						<label for="text-field-16">Label 16:</label>
+						<input type="text" id="text-field-16">
+						<label for="text-field-17">Label 17:</label>
+						<input type="text" id="text-field-17">
+						<label for="text-field-18">Label 18:</label>
+						<input type="text" id="text-field-18">
+					</div>
+					<div class="column">
+						<label for="text-field-13">Label 13:</label>
+						<input type="text" id="text-field-13">
+						<label for="text-field-14">Label 14:</label>
+						<input type="text" id="text-field-14">
+						<label for="text-field-15">Label 15:</label>
+						<input type="text" id="text-field-15">
+						<label for="text-field-16">Label 16:</label>
+						<input type="text" id="text-field-16">
+						<label for="text-field-17">Label 17:</label>
+						<input type="text" id="text-field-17">
+						<label for="text-field-18">Label 18:</label>
+						<input type="text" id="text-field-18">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="right"></div>
+	</div>
+	<div class="footer">
+		<p>&copy; 2023 Magic Research. All rights reserved.</p>
+	</div>
+	
+</body>
+</html>
