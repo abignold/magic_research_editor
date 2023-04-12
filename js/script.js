@@ -33,7 +33,7 @@ function base64ToUint8Array(base64String) {
 function decode_and_gunzip(input) {
   // Decode input using Base64 twice
   let decoded1 = atob(input);
-  
+
   gunzipped = gunzipString(decoded1);
 
   // Return the result
@@ -64,7 +64,7 @@ function add_to_save(value, ...keys) {
   current[keys[keys.length - 1]] = parseFloat(value);
 }
 
-function populate_tfields(){
+function populate_tfields() {
 
   document.getElementById('stone').value = get_value_from_object('resources', 'Stone', 'current');
   document.getElementById('stone_cap').value = get_value_from_object('resources', 'Stone', 'cap');
@@ -101,7 +101,7 @@ function populate_tfields(){
   document.getElementById('canal').value = get_value_from_object('buildings', 'Canal', 'current');
   document.getElementById('monstruarium').value = get_value_from_object('buildings', 'Monstruarium', 'current');
   document.getElementById('researcher_cabin').value = get_value_from_object('buildings', 'Researcher Cabin', 'current');
-  
+
   document.getElementById('furnace').value = get_value_from_object('buildings', 'Furnace', 'current');
   document.getElementById('creature_pen').value = get_value_from_object('buildings', 'Creature Pen', 'current');
   document.getElementById('mana_crystal').value = get_value_from_object('buildings', 'Mana Crystal', 'current');
@@ -142,7 +142,7 @@ function populate_tfields(){
 
 }
 
-function extract_tfields(){
+function extract_tfields() {
   add_to_save(document.getElementById('stone').value, 'resources', 'Stone', 'current');
   add_to_save(document.getElementById('stone_cap').value, 'resources', 'Stone', 'cap');
   add_to_save(document.getElementById('wood').value, 'resources', 'Wood', 'current');
@@ -159,7 +159,7 @@ function extract_tfields(){
   add_to_save(document.getElementById('mana_cap').value, 'resources', 'Mana', 'cap');
   add_to_save(document.getElementById('time_pieces').value, 'resources', 'Time Pieces', 'current');
   add_to_save(document.getElementById('time_pieces_cap').value, 'resources', 'Time Pieces', 'cap');
-  
+
   add_to_save(document.getElementById('time_capsule').value, 'buildings', 'Time Capsule', 'current');
   add_to_save(document.getElementById('mana_spout').value, 'buildings', 'Mana Spout', 'current');
   add_to_save(document.getElementById('mana_shard').value, 'buildings', 'Mana Shard', 'current');
@@ -173,10 +173,10 @@ function extract_tfields(){
   add_to_save(document.getElementById('canal').value, 'buildings', 'Canal', 'current');
   add_to_save(document.getElementById('monstruarium').value, 'buildings', 'Monstruarium', 'current');
   add_to_save(document.getElementById('researcher_cabin').value, 'buildings', 'Researcher Cabin', 'current');
-  
+
   add_to_save(document.getElementById('creatures').value, 'creatures', 'totalCreatures');
   add_to_save(document.getElementById('researchers').value, 'research', 'totalResearchers');
-  
+
   add_to_save(document.getElementById('conjuration_xp').value, 'schoolExperience', 'Conjuration');
   add_to_save(document.getElementById('enchantment_xp').value, 'schoolExperience', 'Enchantment');
   add_to_save(document.getElementById('illusion_xp').value, 'schoolExperience', 'Illusion');
@@ -186,7 +186,7 @@ function extract_tfields(){
   add_to_save(document.getElementById('breeding_xp').value, 'schoolExperience', 'Breeding');
   add_to_save(document.getElementById('summoning_xp').value, 'schoolExperience', 'Summoning');
   add_to_save(document.getElementById('divination_xp').value, 'schoolExperience', 'Divination');
-  
+
   add_to_save(document.getElementById('conjuration_mpl').value, 'global', 'maxPrimarySchoolLevels', 'Conjuration');
   add_to_save(document.getElementById('enchantment_mpl').value, 'global', 'maxPrimarySchoolLevels', 'Enchantment');
   add_to_save(document.getElementById('illusion_mpl').value, 'global', 'maxPrimarySchoolLevels', 'Illusion');
@@ -218,16 +218,16 @@ function extract_tfields(){
 
 
 function handle_import() {
-        // Get the input from the first text field
-        let input = document.getElementById('import_field').value;
+  // Get the input from the first text field
+  let input = document.getElementById('import_field').value;
 
-        // Decode and gunzip the input
-        let result_json = decode_and_gunzip(input);
-		save_data = JSON.parse(result_json)
-		populate_tfields()
+  // Decode and gunzip the input
+  let result_json = decode_and_gunzip(input);
+  save_data = JSON.parse(result_json)
+  populate_tfields()
 
-      }
-	  
+}
+
 
 function gzipAndEncodeString(inputString) {
   try {
@@ -264,12 +264,12 @@ function encode_and_gzip(input) {
 }
 
 function handle_export() {
-	extract_tfields();
-	//result_json = JSON.stringify(save_data);
-	result_json = JSON.stringify(save_data, (key, value) => typeof value === "number" ? value : value);
+  extract_tfields();
+  //result_json = JSON.stringify(save_data);
+  result_json = JSON.stringify(save_data, (key, value) => typeof value === "number" ? value : value);
 
-	//console.log(result_json);
-	result = encode_and_gzip(result_json)
-	document.getElementById('import_field').value = result
-	
+  //console.log(result_json);
+  result = encode_and_gzip(result_json)
+  document.getElementById('import_field').value = result
+
 }

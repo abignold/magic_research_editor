@@ -1,77 +1,89 @@
 .body {
-			display: flex;
-			flex-direction: column;
-			min-height: 100vh;
-			margin: 0;
-			padding: 0;
-			background-color: #f1f1f1;
-		}
-		.header {
-			background-color: #333;
-			color: #fff;
-			padding: 20px;
-		}
-		.container {
-			flex: 1;
-			display: flex;
-			flex-wrap: nowrap;
-			padding: 20px;
-			margin-bottom: 100px;
-		}
-		.left {
-			flex-basis: 20%;
-			min-width: 120px;
-			max-width: 120px;
-			min-height: 50px;
-			/* background-color: #fff; */
-			margin: 10px auto 10px 10px;
-			padding: 10px;
-		}
-		.right {
-			flex-basis: 20%;
-			min-width: 120px;
-			max-width: 120px;
-			min-height: 50px;
-			/* background-color: #fff; */
-			margin: 10px 10px 10px auto;
-			padding: 10px;
-		}
-		.middle {
-			flex-basis: 60%;
-			min-width: 120px;
-			min-height: 50px;
-			/* background-color: #fff; */
-			margin: 10px;
-			padding: 10px;
-		}
-		.footer {
-			background-color: #333;
-			color: #fff;
-			text-align: center;
-			position: fixed;
-			bottom: 0;
-			width: 100%;
-			padding: 10px 0;
-		}
-		#import_field {
-			width: 95%;
-			height: 200px; /* set a fixed height or use min-height/max-height to control height */
-			resize: none; /* disable resizing by user */
-			overflow: auto; /* enable scrolling */
-			white-space: normal; /* enable text wrapping */
-		}
-		.text-fields-container {
-		  display: flex;
-		  justify-content: space-between;
-		}
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	margin: 0;
+	padding: 0;
+	background-color: #f1f1f1;
+}
 
-		.column {
-		  flex-basis: 30%;
-		}
+.header {
+	background-color: #333;
+	color: #fff;
+	padding: 20px;
+}
 
-		.text-fields-container label,
-		.text-fields-container input {
-		  display: block;
-		  width: 95%;
-		  margin-bottom: 10px;
-		}
+.container {
+	flex: 1;
+	display: flex;
+	flex-wrap: nowrap;
+	padding: 20px;
+	margin-bottom: 100px;
+}
+
+.left {
+	flex-basis: 20%;
+	min-width: 120px;
+	max-width: 120px;
+	min-height: 50px;
+	/* background-color: #fff; */
+	margin: 10px auto 10px 10px;
+	padding: 10px;
+}
+
+.right {
+	flex-basis: 20%;
+	min-width: 120px;
+	max-width: 120px;
+	min-height: 50px;
+	/* background-color: #fff; */
+	margin: 10px 10px 10px auto;
+	padding: 10px;
+}
+
+.middle {
+	flex-basis: 60%;
+	min-width: 120px;
+	min-height: 50px;
+	/* background-color: #fff; */
+	margin: 10px;
+	padding: 10px;
+}
+
+.footer {
+	background-color: #333;
+	color: #fff;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	padding: 10px 0;
+}
+
+#import_field {
+	width: 95%;
+	height: 200px;
+	/* set a fixed height or use min-height/max-height to control height */
+	resize: none;
+	/* disable resizing by user */
+	overflow: auto;
+	/* enable scrolling */
+	white-space: normal;
+	/* enable text wrapping */
+}
+
+.text-fields-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	flex-basis: 30%;
+}
+
+.text-fields-container label,
+.text-fields-container input {
+	display: block;
+	width: 95%;
+	margin-bottom: 10px;
+}
