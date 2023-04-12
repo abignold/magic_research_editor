@@ -1,4 +1,4 @@
-body {
+.body {
 			display: flex;
 			flex-direction: column;
 			min-height: 100vh;
@@ -16,13 +16,14 @@ body {
 			display: flex;
 			flex-wrap: nowrap;
 			padding: 20px;
+			margin-bottom: 100px;
 		}
 		.left {
 			flex-basis: 20%;
 			min-width: 120px;
 			max-width: 120px;
 			min-height: 50px;
-			background-color: #fff;
+			/* background-color: #fff; */
 			margin: 10px auto 10px 10px;
 			padding: 10px;
 		}
@@ -31,7 +32,7 @@ body {
 			min-width: 120px;
 			max-width: 120px;
 			min-height: 50px;
-			background-color: #fff;
+			/* background-color: #fff; */
 			margin: 10px 10px 10px auto;
 			padding: 10px;
 		}
@@ -39,21 +40,25 @@ body {
 			flex-basis: 60%;
 			min-width: 120px;
 			min-height: 50px;
-			background-color: #fff;
+			/* background-color: #fff; */
 			margin: 10px;
 			padding: 10px;
 		}
 		.footer {
 			background-color: #333;
 			color: #fff;
-			margin-top: auto;
+			text-align: center;
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			padding: 10px 0;
 		}
-		textarea {
-  width: 95%;
-  height: 200px; /* set a fixed height or use min-height/max-height to control height */
-  resize: none; /* disable resizing by user */
-  overflow: auto; /* enable scrolling */
-  white-space: normal; /* enable text wrapping */
+		#import_field {
+			width: 95%;
+			height: 200px; /* set a fixed height or use min-height/max-height to control height */
+			resize: none; /* disable resizing by user */
+			overflow: auto; /* enable scrolling */
+			white-space: normal; /* enable text wrapping */
 		}
 		.text-fields-container {
 		  display: flex;

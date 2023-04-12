@@ -1,5 +1,4 @@
-
-
+let save_data = null
 function gunzipString(base64CompressedString) {
   try {
     // Decode the base64 string to a Uint8Array
@@ -41,15 +40,236 @@ function decode_and_gunzip(input) {
   return gunzipped;
 }
 
-function handleImport() {
-	document.getElementById("import_field").value = "SDRzSUFBQUFBQUFBQStVOWFYUGJ5SEovaGRHWEpDNFhDbk1EK3FaejdjUmE2MW5lM1hyWnVGZ1FDWXA0QmdrR0FDVnJYZjd2Nlo3Qk1jQUFwQzdiOVJKVzdWb0FlbWE2ZTNyNkdIUVB2aDdrY1pGdDgxbGNIQngrUGZnakt1TWMvNWh0OHp4ZWx3ZUhnZ3Jpdno2WVJadnE3Mit2RDY3S2JCMTNvVlFnR2lqOEc2RGU1dG02QTBTRGtOWkErbThBdW9qV1VRZUkrU0gxNEgrK1QwUVFDS3FxQmtyNENQOHhXY1dUeXlTdThHMmExZjBTSDM4QWVKSWw2eTZJb3ZpdzdrNWZBTndmV1RiZlM4ckhlTFdKODZqYzVsMnlwV2c2bEFhL2kyeGRsTWwyMVFFamZrQ2tSem5ub1FwQ0laV3NHb1dTNmxabmFUd3I4MlNXbFBlOWhyNU4yRGNBdmQ0bTZUeFozMmpha0h1VHEyV1VkMGxnL1BVQjRMcU81Ky9YZUlWa1JubTh6TFpGRjM4YTJvQTBCTURmbzIxYWRwRUliQ0FTSUpWSmIvNDdJRUhOaDN3YjVYMWV1SkNhaGsyMkxmZlI4RzY3dW83enlkOGRjdjBPS0RMMFExekVVVDViQXZoSmRKMzA1TEFEcjhWUXkvM2tZN1QrM0lVa0hVaFNvL3RMZkYvMDFnbGxIVkFHb09kd0djMjZqQ0swdzB5QU90cHM4RkV5aXllbldiN2FoK2xKSG1zNW5GekdYYXBJQjFmUzRIcVMzeGRsbE82ZWhCT0E3SUlvRzBSMVdmcDdrcWJkVlN0dGFBblF2OFJyWERCWnZydlRXdkFucHpuME9kNGxzV0hmUmF0TlZ3QTY4MitEWGtWM3EzN0h2TnN4Z0MvU3lLeW5aVlJNYjZJU2FJem4wNmljcG5GVWxGUGhUMWRhVFlGQXg2OFA3dXFsTk4ydTAyejJPWjdYVDI1eDdUaDNWN0JZM0p2VytuQWVGbkdhd2hKMzd5K3p6VFJabDNuVzRKTDhCYXRobW1mWDhSUUl2cmxCekljZVhtZmJtMlhaakI2dnN2eCtPbHRHdUtLbThaZk45Q2FQMW1YYkZqa3h5Nk9GZFF1ZzBnem1OTW5XRG1icitBNFF1d1grWXIvOXA3cWpJWUlNcjZkM29JT2Rad3V6ZXB6N0pWaUE2UVl0d0RUNE1pMDJjVHpmYnFieE9ycE9FV2dScFVVWGFneGtlTExKdEREV3JlWERFTkNkTVpTMVJNREZ0QVR0NFdCYnI1cnBXNXkyNmNmK0hJMzAzNVc0dk82azMzdmVyTW5wRE5XY0F4QnR5MnlHUFdxcGNVVWthcFRQZEE3S1p4cmpGTHBnMVR3bCtjRFU5N3R3SkIwSW1kNW9oZWs4UzdWR245NmptSTZpN2doQWhwS3hRa1N6QmZEcEpwbFY1STFnUDh0VzE4RGFUUVJyZGw0MUtOR21Wb0pRekpaWmxoNUhSWXlkSHBQcGZMdStpWUhVUlpwbHdObHN0VWxqYXlFVW4yTzRodWZ6ZUFIS0dQb2NHZGgwUEwydWVwNWUwNEdsWWRUNWRCT3ZxMjUyZ293OUxGeGwwYVdLN3FXcWp5eHp1bHpHMFh3RlU0SXFRNk5LeG1odWhtWDdoblg2cEc2ZjJ3MW9wL2tBaldseWkycGxrUUVEWE1aVnpRN0J4VXNuNXhIYTF1NkREM0d5aHJhemVENXAvS1BDQlRKckRIcEk4djdEZDFGK0E2WTQyODZXellxUDF2TnM5WDRkbzZ0NkFxWnFXNXdoWWNVUXQzWUJ0d2IzUDhDWGRjazZXZ0R1YzlScDJuRVlRTHloenZLY2RvRzFYcEFEOVNhTzBuSTVPYzZ5b3V3L08yc053K1JqSGlWcm1KTWFwblpYUWF0R1JWSzRIREJUZUs1bjhBeFdjYlJHUmJKYlpyclRQbzgzNWRLVmpmNzhBV1huMld6clVQWjJ2UWF5SngvaUcrT3lKQmkxVkdvdlMrZlQ5UllRSHRJcTZESTVvOGJwSEUxQkhnL1k0d0dPMjI2eWc1bnR2dTJhTnUyeU53Q1dQaTZyeVJoSDVXd05QZ0RhL1lmSzhNRHEzQVhjZFR1Y0pYVzV2VTZUV1lmbkRzeEp0bDdBY090WlBDUXlwMmJ5OXdqTWRSck5Qayt2b2NPOU9yc3JXemQ1ZHV1NklFTXcxMW54SUJuVXZuTXhSTW92dXA4OWxFVFh5RzNRQnRNMHVuYXRBWXdBL2hjU1Z0UFpXTTNsZHExRk03c2JNTVNOeUlHOHJLSjBXS0djTFJZUW9rTG5FMnZGRDJyRWZES2tMNkw1TGE3dStYU3ZVb2piZUhnVTFTdVkwa20ybUx6SmRGODlPajhpbWNkWldXYXJmU3p0Y21hVnpPZXBPK1dGQ1NUNlUveE40NHFXRGxnUzU0a1IwNjhINXdudUZFRDBkaGJsNVZML1ZXMnR3RjlIYUVjd2xqTzJzdHNTeFAwZjI1cTFKQ0NLQm43Z2NUK2tvYUpTUUk5bXlhNnEySno1TkFpVXg2VlVpaklKb2REYk5OMFd1am1WbkllTVNVOEtFWEpKQW9qN2psSVFrdFU5TkpXKzlCbUhyam5qSkJBU2dyT3oyNnhlalFFTktQZXBSN21rdmd4RGVIcVpaeVhNaTM0YytrU0YwZ3RDNVNzcEtBWEVqa0hwbVptUWdnRmlIZ1BjWlVnb2haajNhcnVDa0VjL0ZTRVRQUFFraGVFVlVNVnRUb0Jvcjh2Q1pZVEgrNVI3d2laVlg3YTA0WlZGakw2MjBkYzNXb1QxcFlXaXZqN0Z0ZGwyOEsxMXR4RzlNZ090M0s1clFKa1IyeUUvU3RObStLOFZmWnF1Rm1mL2RaZEl2NE96M3lNWXU3ZEo4RHNZK3pZNXZzVUsveHRHdUxVempRaTBCcUtMWXpYYXBOMlFBWHpwNis1OXMvTlI2Smo3WFh5YmxGVnpnSHVYZ0twSGJHRFZweWFBdjRvV2NYa1BmZ1dHNExMYXZRT2F3VEJWVkZDYy9BM0V1MGNWaGtEaURYQ3hHTVhJOXhobGdyVS9YNDdoNkh0RStEeTBmaUJGLzRXZXYrOEZLcUJORnh3M2VxNDJVZjU1Y3F4eDlUMWZLa1prKytQMVpNV1Q0MHA5QVJOQ0R4WVBKK1lINjRXN2JBQWtZQkhZU0NCamxnbDRDcWkrTGpBY1FTaWhmTklnUkJGVDFLSDRoQXFmV1pqWTVJSmZxT25rVklpZytZVXRSTFVIcFlGOElxbE5rbDd4RlZ6WFF3UWVxNFlzL0xGaHlNbmJ0NXBBSm54cS9kcUZxU2xNWUxaVFJFRUpUeW91ZmZPak11aktFUENBZ3o1b2ZnRjBkSjVHZDlDMm1CeHROckN5SXEwbGdSVE91U1VDakE3SkZ2UW5tTEw2QTU0ZWdlRFBZUkhwVGtBLzJwMVlST3I5c0dIT2FrZFJQd2s2b3FYNjhvNThDV3hCeFMxTnZYMFhUM0J2ZkhKVmdna0RJUktndmJtcTVpUWdBaFZpdTBpTFN4MjNOdEZxbWtWenN4SytBaHo0RXVVN2MrYzNEWVYycFFrS0cwVjEwdDd4MitlZDlWOTE5aUcrZzVsRlp1STl0Ry9vSi8xdEcyL2h4cCtmcXV2M003T2RWbTNEd3l6RzZmUzN6ZFRTV0VTQzRlSWdScHlFQ29GNkRkOENzZzlvV0EwNENnMEExYzdlQlloSmREUGU3NEhaRlFLZkE3Y1BPNk5ZVDY3aVdiYWVGNWRwZEkvc3BEeFF5bE9nWkNSWU5ZNTc0YUFtb3BVbU84VlJBQWFrVC8vNTIrWWR5Q2c0WjFlbzBRRGs0S0QvNUFTM3d2REpxMWUveG5jVHZUT21RN2lrakZmRjRhdFgvNzArdkFNRWNvaEZQMlRYOGVIazFSL1Y1UVN2WDAzK3piSVprM2UzMUg4OXNZakVPL1RmWDA4T0s2L21qMld5Z1Q0K21xc0pYanBkQUZGdUZ3N201K2c5YVpxKzRRYWk1dldicE1BTlB4U01iM1Vnb1BWMEhjU1NpczBCNkxhUWprbkIvb2EyRkF4QkQwdkJFT1NVRE1wQndPQWZ0a01PQkpnQWNIZDhXT21COUpXdzVVRHZHSjVvVDFlQkxzUWRwMlJ0cnRGckM0Y1lOa3dHc25GOFRRU01LWitLeHkrbXV1SDNYVXpWS0R1WUNJdUllQUZIdzB0VUlCUWZXazNzQ2F2cENkTGFVbFg3WEJVVmdnbXdrL3VaUE54c21NV05XN2VId1JhY3kxNHp3ZzcyS2w4RW5pQkVzNWVpT0R2Y1JRWDJRN25idXF3VkZZZ1k1M3ZaTzladWtMK1dYN3lid1IxQWw4Tm1qRjBjNXB4NmpBaTBCcUNaOEcyZXkySTV5bUtqOUxXL1cweFM4eEIwL3VUVlJmU1B6QVROb0oxYkpGRTVTMWNWZnhleFZ3eGNXZmxvc2ErYWZVZXhOeVBzbkJRQllhd0l6YVFRTVRRbjRZOFJlMWVwczVvSzVZZmNmN2dGN0xYYmJRRFpRKzBmRythd0htTVhod1ZWSHRVQkU1R3F5K0daU2JRZ25QcytIK1BMMk5aUGc0QUVYM3lNT1E5cmJITm9yTVV3bTBiM3BleDMvWU44ZzdoTzBwMThreEFoQ3FZbDAvZUp4YmRCbjJBTUU1ei9VUzVvcDhIZE1hdHdER2dZc0hDTXRmdWEyVXgxWVlmWjZjTDVnOXd6USt6aW51VENveWI2RGtOY3dqdTV0MU83aGRDRkdGMSsrNXA5UisxbVJ0akZoWkJ3VDVGQXJ6MklRSWJVRythSlBOYmtYT21JQVBjcHF1QUFMRStEcWc0c1h0YndWRHVvSFRFTGZRaDM2ZWkwN0dwaVQwa1hibmc2dWpDREVsbDF2V011QXNLbHB4VHU1Z1JVQlp3L1F5UkRDakt0Um1PaWZjMituMGhXSSt4aWd3aUk1K3Z0TVlEMjJaQVhoSTdxVDdXNG9aQStFNlBCMHQ1MjM5UGlWbVBzWUhGSWZJcXJYa3NhQ1FNK1lISXA0V2IzZkxmY1djRitNem9EYzdSWDhrWWJEc3FldlpXOVcvcTZrRVBNWVRxdmNoZHpRcy9uUHFwRUFhNkorZ0diTWxGOGt4UkgrU3JMRHlldmp2QmlvcS9jRFJsNysrVmpuc3lCRGRZT1RIVm5vSm16Q2NPZXNnbXpZL1lrQzhuNGd0amY4RHRQdXhsbDE3UlQ2WHVNb1VlQW9Sb2JpbStmdEh1d1k5cHJaNmFlK1NhemNHVHlYM3JPRkFlM2U3K1JHRzM0bmVmTWpMSnJ6cmprRUREcmJUTVNjajdvdmZDWG5iUHJQSXZtVjNkWlBvY0pPOGFMaWI1eVo0dS84R3hCTENMRS9yMk4wWWJmZWJiTUtMdG1TekhtY1NiMGJDa1dEazJXZU5uSmdsV0VMOHNBSFZ4ZUYrMlZPMXZpUldjTFRJd0VRaDgvVzAzRDd6cGI5U2pqczhWOE5JT2hVR2dHdVpLRFMydDhMK3BKczdYQWw1dHhYbXZEYzNQNXI2TzJVS0l0eERTcWVIMDF1eStYK0Q3akYzMDVNZGREVFY3bTFRT3QyRWlrVUhSMGx2YzMzUFBxZ1Q3NDFRTWRuR1V6eXE1WlpqRExKSkI2VFZJWnFzZkVISzdzVXE2VVlrOFErcXJoZHhaNk04b3VkbkRGUEVwRHpRNGk1SkRRcXg4UmVzRGRUVkxlbjJUYnRVN3NJWmdGLzhYTTl0dmlJbHB2b3pTOXR4SytxL2UzTjJsMmJXb3RpaTVwSE1QN3dBc0RuM0JZL1FMM2tmRlY5bTNjNTRHUXltY2Vrd3I4SUlIcEQ1MENoaWJCYWFxai9pbTRrOXZwSnBsOWp2UHBldnRsSkZGM2Y5YnpJL09KVFc0MzdsUEZtT0JVSmtVOGtQMEwrQlp4dko1bWkwV0tkUktiSnYzamllbkVHZWFTNit6L1BDbGhDcWFMWkowVVN6c2ZIZk8vMCtRNmovTDc2WFc2amFkbEJ1Qmw5RGx1c3RuYXJPUUN0OWtXaTdFazFLY2tyajRtY3hFQ2dueUZXZXR4cm1NREY2Slh5K0htUHZZMk5WdnhzS3ZIS201anFjUjB1OW5KUUN2RkZZc1dkaEw1b0p6R3g2ZnNqZE5rMWJrNStlVUFYTUpzWStQOU9Za1dtenFsYkM3S0Z5WmpjRi9pcGs2c1BLbG02UkVjdVl5anovdmc4emdGbWM0VzA1dHRzVVFpVEVVS0xLYjVkbVpuYWE2ejI4akpiYnlHaVVxaWdicWRjWjVVVllJUDUySFNsdFJvMlpvbnFha2syaVZwaXloQnlVN3lXVHFnTzdvTEdVWFJYY2VyWkFVdy9WellFWGJwT3NzZVNYRzlVelpRMW9WZGEyTzRhNG1BTmdQMTVtclRWWlRqbUZhZWo1dHpPZ0JqS3RlbTlZeWlhWXErWE9ZZ1cvbjlsZGFWMnRUMk1nMWxMOU1RUXpZcjFaQzJLV1ZWcnFHZFFhaHJMMkdVZnZmZEhvT0JMcXhNMUxEVG9UTzZuZGlJSWJ5Vm1xbTZtWmxZclZnejZzeWszaFp0eHExaFhKVjBheTcrc0N1MWp0b1NqbCtyY2w1ejFXVHROWHl0QjdscVV6YzdGRmREMlRTYld5M1YxWmcxM1ZXTGxuSnp3NmJkM0dtcE45Y1cvZWFHblpxcTNZcHZkdXBwOFFaNE1YK0h5Vnhia3loYTZzejhUYkZONDZKekgzUERNTmVyd0V6V1Vzc243c0JnRG5kNXZpbk1OTVpyWFhCc3VUS1lCNFl4V3ZteDY4RHhRQklHZmhsTU1EZy8yZDNST2tydlFYQ0x4dnNCV2Y0ZE1BVE1lMDFsU0RueGRRSnpVcHh2MDdRQ3U0cHVXODBCZkl3dnNqbmNPSmhIT2U3MEw1TjVyRjJ1ajlvRFFzUXcxM1VGekptaC80VzVtbVdkc0ZsY0ljN3ZGNHNHSFZNVGVIV1hiQ3p1bXB2R0VsMkE4OVFZdG5oUnZnRy9QcDRiSEtvK050dnlCSGlxZmN6M2E3ZFpuWHY3cmtuYysvUHJBUmF3QVJWbm1LS0pvbmRnT1BhTWJOd3FXL1FoYWJrRGFiaHRYbU0vYXhjYzNRWmR6Y2hIbzlyTkxhVkRpYlM3Q092blpJNzBySE5SUjFOUFI1S1BMZHIwU1FRUEplMWo5Z1dyaXpkWm5WSzVmMW91dDJBUEZsR2J2VDA0Q3lkTFhhZUc4R2lWVTFNV2dKZFpVZ0JSYjIvdjlXV2JNR0xTdmR1MFZwdW1aMDZWUHpSVnU0aDEwbWQzcFEyUFpnbVBUQlVzN2YvWlFoaHpIZUZvZjhJaUt1ODNTQ1h1VHdDbFdSUEtJcVY0VTRlZVdIOTZtVlVCWnhzNWF6WTlxSU9sTG1WNVZoZmdQOGJybTJkMmdxczZoWWp6V1oyZ0s3UXU0dWRSZzFIQ3MzcklyV0s3d1k0K2ZXcTJFZjVXelhsbHlHYWZkY1NOQ1NkRWhDRnVSOTZCeC9jT1gvdzJsZDNna2Nmcjh6eGIyZG9ZYlFPYWk5TUlQTWY0YkxFQW85c2Fwbm4yYTRZcDFPQVdRTVI5bXNQLzhrNDFlWEcyQml0KzJyaVNYdzlXOVhrYUd3ek1jUXVBNDlhRmxYMHQ4U2lFdXFMMk9DcHRZRTR4aWRRQ1puaHlRVjFiYkVPcURoZ21lRWZyRzNEM2xuRzhzZUVFcDM0SGxHTFJTcEdhWE80R2pDcDB3Q3d3Z21BZ1dXVWFuNEx0U0czZ3dCbjdyMngxblhRN0pGME1pZFR1eVB5cVB6SkJ2OU5tanlaRmw1UzlhY0swM1pRWFNmcjVyam9tbzRFU3dvRXp0WG0vUU5RMlQ2SU9OMlhvTzlDYkhPUXF2VDlQTWVEcWRJMVZOelpwZmxDemY2anZBVHd3aE9sTWU5QVZFWjN0djRJNFpCR3RrdlMrSzA3OXdUR1RXSHVhTnZON1BNWCtkTDNqY1J4MWFDRXUzVGQ1c2xna0hSSTRwdzdZUEwrUDV0MkpaQTZRcVQwODYyTG5NbVIxRDJadGRnRXJzTVBud0VXdVdJSy9kTmNaTm5UN3UwMW1DYXpEOXpkNXAwTVp1S0NiKzNMWlhWa2tERjJlWkJCVjJFQXVxUkErbHZHbDB4c2Q3TzA2N1RJNENGeXBMdk1zN1N3NzZySkR4NXNkNU4xdWxrbTgyTk5OdGJWd2ttYmIrZTdlWm5FT0ZudGI3SVpDUC93SzdITGUwekV1MCtwU1kwZHZNVG5ZNjMrdXRXTzhjM1JZaVNtb3JLaGNkaGZpZ0t4anZQSWY0S0xmTHlCVTc4RDJKeGlBTTlEKytLSytpakJQa3dLaHdYS3Rzd05VZ2RucVhaVllhdGhlNklqSzJkSmxoQ3J1aFZ5bnNFbUpVZkRnamk0Vk5GU2V4S3BKK0kvNFFwK29jbzY3dXUvWEgrSVN1THVxMXYzNEhrdm5lS1NINzh6WTV4bFZvZTlRYUJkUXdZU2dEQXYyd0l5RDV4dkJhcStONklobkNTWi9ycU1jOTluck5nUWFlZ2pScUtsQkFoWks0VkVmQzZrSVkxaGhCL0ZvOHl3VW5yU2ZKY1V4ZUJaWXA0eWVzWDMreC9zMWF0ZktvQ2ZHbW4vc0V0STZBNG5lT3Njd3NObEgxRDVGRy9TMXpzcVF1MW9SN2p4b3FCNTRZcE1zQW8rYXFqSlRXR2FUSFBTZS9SU1M3U0N6SXRhNjFaRFp1ZGNqVUlTK1dSWWNuYmpPcFBZZi9oUVNPMkZ3UmFOOXJ5R3llOU9tVWpHUDY5VVAvem1pRy9RZi9oUXFoMk81b1lWYlB4eGV1ZTNURGdPSUZ3UzZIb1ZSbmNUV21XYnEwZmJoejVybVg3U0YvaU0yMjhZVjRaMmJEY0htdXRsSzZaTEtoY2NEYVRRUnVrYzJwYXIzckV0b2hkVVBvdlEwK3V1dk5PNVJXdDFzS05YWEk0UUtDcFlxTU1RUTBhTTA2RC84R2FUcThHTUdCdE84OXozUmhlOS9EdFRlNHRacUx3djZZR1F6NUpONXZXdmU2K3NkUjZDWCtuN29CYkRNUXgrcnhUblNXNStDcHJmNU1PSjlQeElEUitYSEtFa1BlcE1VclV4NEt6R1kzdEVjK1BjSDdzZU1OS2Q3bXEvaU9VekpPa3JmZ0pjMzFrbEE5dlNTM042UHRRMzVucmJsRXFaalBvci92dWJtTGFNK3ZYT3NDenk2Y3pjUE1XSVpheTcyc1RDdE4xWkJ5clFzRFhhemo0WGp1MHRXSDhHKzJSelo0N0s2Mk1mUE9heU41UVhFb1RrNHQ2Tzk3T1BvYWs4SGRCOVQ3N0pzZkVrSXRxZDFGYytleC9xOHVxZXVEY3hYK2xXZit2VFVIa3lrZVI2TnIwKzFwNGNpU1NFRU9ZN0dpZGduV0ROemNGU2EvQlhQVzkwMlFnN1c5VU1RdDZtampPTnNmdC9wRGQ4c21mTWtzUXJkN2dnVUdhcEVoUEk5NW9OSDdvZU1TeVo0QUlzWVJzRlhKZ08wWFdGYXhXaEhXQjNNT09IZ0pBZ2lmSVlkSGMxbWNWRmtlUmV6V1pwRm45OHZPdWQzamZYS1pTZ0prd0pNY1FCaGc5Q21JcllQTTJyT0NYMXppUm9rd0VNaTZqTW1CTzBBWDJFNkFTWUluV2hyZHRCL21GdStBZk44ckdGQ2wxM3ZZWmd4VHMxYmZaMXBWT25FZmxwQm0wNmx6V05qdHF0OWhkY2RkSDNxRVVaQ1BQSkVTbC92QkJWYnpiVEZOclhPYkNvdTQxd1Bxa1BXWGg3UXdTR1dBdmF6ZmN3NzQzNDJUblhzN1RJK3lmSWM3WHVJV3lCRG1USFFxeHpLZjhFWHZISWdad1Nwa1VPcElkQVJHOHEvcUY0Tm02RCtTTWRVN1ZFeUlFOFFmVGZubmdoME5ndjlVdFdCUkhjR0dPMzJRRTBDYy9XVG1HNXBRcmNQY2JGTm14TXlxdm1CcFNDQU11SUhpZ1VneGh3cncrZDY1OW5zVGlURm02UjVaWndVSjNsU2RyYWJUZVRMUFJtRWRYVEw2amV6MFArbDJiekFPK2E5cDlZR1ptUS9ER2tvRlNXQXB3aWtUanlzaHhaOFpPZzJONk9PdVNIYXI0SVRaUTFzeEhCd1hEeGlDdGFYcEl3TEtZUzBobTBKYnR5OUVZb1ZyQlJXVVV6RkF5a1doQ2lmYzBWQzRoUEN3eWVOSE9DcE1oWEY0bUVVZzlPdkZJZFJpYzlDcmhSNTBzQ2hCMDBya3YySFRqTER3MlZVZ09tU3NOWTVzMGFXRDVRdUJZeVROY1hzWVJUakJJTitGeUlNQVhNaTFWTW9kcUxDQjFHc0ZQVVZEWWtLQXZDM2ZmR2trVUVSTnlNci9qQ2FnVXhPZGJFdlRETGc4TVNCNnowc3pMSWZIL2pncU40UE9vRmc1UWFzM1dHVnZRb0dFRHhtKzdUTkErZnRQcDVpRmV0dENMdkVyMDF1NlpBVkVGK0ZLa0MyRXBpUHB5Z294VUV2MW1USjNiTDdDUS9JemhNTTRhcmNaVHh2Nk5KUzJFYVROamJ1L3hybk5iMW5yWFZ4eWYzQk05SjFmcXA4N1hmWmpXM0dCQ2hXaWxuWFBoNW1GWGFUdGhrbXkwUEFqL3VSQWVndTNFcXZVcVdoOFovOFVNaERFVTR1THo1Ti9wNXRKL2wyUFludW92dkpJczlXa3d2OUpnZ1BRSXNuWlRhQmlCMTMzYzJ6KzJ5YlR4Sk1QVWppd3ZNOFRHVFFqa3dDMG5QUmpQRE1UbTFOTGdqRjdkUVF6Q2IxQTUvM0NTVzRRUytwVWRNaFduK0hVTDhoZEFGKzlYeENKMWZhMDUyQUcvOHZPeWdZZ3JaVmJzQkFIQUF2cFFUamdRaGVBcldBeU1taHJpTTluRVI0ZzhMMXF2cDR4ZUVEc04zWGdhMW9CR2VTZ0hYbVJFaXdsOC9Ddjg3bG5QeHVYdnhOOE0zZkxueEhHbGo0Y2JCcENtYWQrc0JkdElZT2dnSDNXTFYveDhIK3VBaHk5ak1aVERIa1VuZzhuWlNLUEF2Nzc4RGVNT1NJRi9mQlAyTGdEVHY0TVFsdWhkQitTSUNwQ1gzMFNOaGpyZ1RIdHNzYkZqeUt1WHM3c0pjZkpXQ0Y4QVJHbjFIS1ExZDhINEYvd3kyejdmb2d4dGFnOW9TRG93aktLa0NlS2s0cGMzQWlXS0FmR3B4VTZPTGt5NS9LVStIN0t2QVZZS2pDNEZuWXZ4QkhROEVoZGhBaG1GM0dRd2NqVU1BZU9DSWFJL0JFSERNbklMd2RNWE5tc0plemNBL3R6eFlYUlZXSTcyOGhSaEVZTnpqa2Nla0pUZ3g1Z1NQQzRwRHhucmlRUjlrMk1tYmJndEFIbGEvd1BSajRHUUY5UG1KTStFRlhESWw2bEJ6djdjQkdYd1RVbDVTRFdaYkFYOGR3UEFiOVJqb3RGK1pCMHR5QnQ3Y0I4TXhUV0dnWTJ1TDdOUWM1UHdDUDA3eXJBYzFNWGV5SStKbEtRZ0hxQkRWcUFONFBEeHk3OFNqOFgwaE5CSGdBbk1SaktTRUNkYnhoc01JRUR3VFczckRRaDBSMlVlS0hUUDB6ZU1NQ1hEWUIzaWFsSWdDUG9yOHNnWGhRMEVGRnB3Z2Mxdk5EU243bXVnUmZDUXdIbnFLTS80THdQNHVBRjErWmhFc2loR0lTZ2l1RjI0Ujk5QUlsd0dVelVaWFFVVndmUGVERlQzUTQwYUZuRkx4NWdTNG5WYy9DLzN0NDlGSUszQ2xpQWoxak41cnpBMEhybW1yY2JuUTBNenNVNm1jS01FUWpJZkFmMUI3SUIrYkNQSXVBRnhkZ0JremxFay8reDVQWVhlUlFEWEpoa0ZPK00vM005cFlxNlFOdnRzc2NGVDVPZlBkMVlLc0hHUktPbTcxQkNPNVE2TGowanlPZzRkWVpwb1ZPVEY3b2c5amJiV0JIekNFc01NNEVucElIdXNKbHNBOStoVFFIUCtqM0FuMzBITGZvaDFydVVGSFF1YUIvT1NaeFVVZjdQZ2I5RnpMY21Dc0hDd3E4WUFGLytIMEhIMk5UVCtuRDhibmlERXZ2K3ppUmZ3ckxEWUcrQ2dnVitzTWdURHFhR2RTSkYvQ0tUa2tjdzhjTy9aK3ErQUpZaldCYWNET0QrSkk0SHRhajhIOTV3NjNBSVFJZmtDaGZVRHlUMFVHUE10eTAxdWloNmVtalJ3SEQ3eE5KY2Z3UUJnMGxhQzBPSTc4QVlqL1dZd3Z3dzc5NHRDSUR2YURDZnJUeU9BSmUzdUFwV0ZVQ2o4bkZkMldVT1JZRFZwMFhVR014UXVxSUpRV1FFZlZoT3pFdnB6OGUxMnNucEEyWkRCbllkOEtaejExQ0piNFRZSVpRSGpxT0IzVmRmMUoveEV6bm90U0pkZytSOWVGMjlyeHdQQUVGUEdnS0dDdnVPbnBQUVBlSHlyM2dQbGhLTVBkTThaQzQrdTVSK0wrNDJBZTRIdytoTlZVTVA4UGdZc2NBTzE4bktIQkdzYkNsajUyenowZ21lUDdUeE9SWFBVUUdPdUFkalFHQmhXSjYwNXVCS1hCTTNST1ErNkZlRXFpOE1JUUlDb0pzNExGd2d1eEg0ZjhzTitsVFd3RFRlUW40eWJ5eTFDODJNWWxXbDRUZyswcjkwYUxKMVJMTHN5aTRxNEJxL2RNdkdJNjMxM2h3bUFFZ1JIZ2tiTDZWSTVUK3FzK3FmZ3hSc01jVnFab0xYL0RYdzhVa0E1VWdJNFhJQXhrR0g2SmtmWjNkMVNneHNKR2VCbUI0ckNTK2M2cXlnODAzTU45aWhiSlFGTE1GS3N4Q25JR0J5dldRaGVEeFVsMnVFT0MrU2ZXSktaaDVIbmk0T1E5allOVUdiY1k0enJaNFFBamlJUmg2KzhMZ1FSREcvZ3dWeFVETG8wcC9mWVlMU2dlK0x6WDBpdHZVaFZQd2tKUUhtc1Vjak8vWE5mQ24xZGtybUEwVTZDKzhhUUpWZ0t3ZnJzbW1vS0hRd0ptek55VldSZHJaMUppbmlKV0lnbm0rUVJZaXJNQ2FIL09kS3VhRHBIdkVxRE1DSmwwT0oxdnIrbkFFRHVzdnJxQXYyQzA2R2FvaGNldHdCa3BwQnI4b1JjRGtLVS9xMUNPZ01TU0RYMnFpRUM3NkhuREtuR2FwTTlkR0RqbUFBRE5FZDlHYzN5dUVWV05mRjhjUGNhTlRjekpVUU9MbXF3K2NTbzJubHlRbjJXb0ZHcWhvMS9GbG5xRkdpS3RzL2VyRU5ZbG5rQXNEOGJhTVY3OVZBQ1o1MGkzVTFvSk45RXRkTGRqNE9UTzdJbHcvcHg2bWdKcm5LRlhkc3ZNS0pBanJMakEzc0ZmZXJtSEE1Wk5CQllOVmdyMDZlZzNESVZLdmg4S3l3MDVDTlRLSGhmZ2RNTU9jVUdjb3ROblMxWE51enBQVHo3KzF4d3dZMWkyaTJ5eUhRTDArUk83UDRUV0NSNko4VGpaSGVPQ1VZYkN2dnhXL3dZdXJlR2FTQzR2NktKZGpjN3JNYitzeVNSdndtajVkWkZJY1Z4OVBSWDM3QlJNODhhQ0gwb2hpOCtkcHJBc1Q0ZnJVOEZqLy9lYXlQYzdqTkp0WENUTkhtQ2tjelF3NHBvK2NMS3NQcW4yejhuK0h6aW01U3JOeW9qOXU4Lzh6Uy9oYnRZVE9la3k2eU9iSkl0SGZYZFBuMWtTZjQ3WWdCWVQ1ekh4ei9xaXNDajZ4WmdUVU5INFNFS0kxRmFMQzM5aW5OeDBjSG5TUFNLeWVWb1dvOExoTktmcjJ2MTZNUHJDOWhRQUE=";
-	
+function get_value_from_object(...keys) {
+  try {
+    let value = save_data;
+    for (let key of keys) {
+      value = value[key];
+    }
+    return value || 0;
+  } catch (error) {
+    return 0;
+  }
+}
+
+function add_to_save(value, ...keys) {
+  let current = save_data;
+  for (let i = 0; i < keys.length - 1; i++) {
+    const key = keys[i];
+    if (!current[key]) {
+      current[key] = {};
+    }
+    current = current[key];
+  }
+  current[keys[keys.length - 1]] = parseFloat(value);
+}
+
+function populate_tfields(){
+
+  document.getElementById('stone').value = get_value_from_object('resources', 'Stone', 'current');
+  document.getElementById('stone_cap').value = get_value_from_object('resources', 'Stone', 'cap');
+  document.getElementById('wood').value = get_value_from_object('resources', 'Wood', 'current');
+  document.getElementById('wood_cap').value = get_value_from_object('resources', 'Wood', 'cap');
+  document.getElementById('iron').value = get_value_from_object('resources', 'Iron', 'current');
+  document.getElementById('iron_cap').value = get_value_from_object('resources', 'Iron', 'cap');
+  document.getElementById('water').value = get_value_from_object('resources', 'Water', 'current');
+  document.getElementById('water_cap').value = get_value_from_object('resources', 'Water', 'cap');
+  document.getElementById('monstium').value = get_value_from_object('resources', 'Monstium', 'current');
+  document.getElementById('monstium_cap').value = get_value_from_object('resources', 'Monstium', 'cap');
+  document.getElementById('coins').value = get_value_from_object('resources', 'Coins', 'current');
+  document.getElementById('coins_cap').value = get_value_from_object('resources', 'Coins', 'cap');
+  document.getElementById('mana').value = get_value_from_object('resources', 'Mana', 'current');
+  document.getElementById('mana_cap').value = get_value_from_object('resources', 'Mana', 'cap');
+  document.getElementById('time_pieces').value = get_value_from_object('resources', 'Time Pieces', 'current');
+  document.getElementById('time_pieces_cap').value = get_value_from_object('resources', 'Time Pieces', 'cap');
+  document.getElementById('tempreature').value = get_value_from_object('resources', 'Temperature', 'current');
+  document.getElementById('tempreature_cap').value = get_value_from_object('resources', 'Temperature', 'cap');
+  document.getElementById('electricity').value = get_value_from_object('resources', 'Electricity', 'current');
+  document.getElementById('electricity_cap').value = get_value_from_object('resources', 'Electricity', 'cap');
+
+
+  document.getElementById('time_capsule').value = get_value_from_object('buildings', 'Time Capsule', 'current');
+  document.getElementById('mana_spout').value = get_value_from_object('buildings', 'Mana Spout', 'current');
+  document.getElementById('mana_shard').value = get_value_from_object('buildings', 'Mana Shard', 'current');
+  document.getElementById('lumber_yard').value = get_value_from_object('buildings', 'Lumber Yard', 'current');
+  document.getElementById('warehouse').value = get_value_from_object('buildings', 'Warehouse', 'current');
+  document.getElementById('water_tank').value = get_value_from_object('buildings', 'Water Tank', 'current');
+  document.getElementById('vault').value = get_value_from_object('buildings', 'Vault', 'current');
+  document.getElementById('mana_geyser').value = get_value_from_object('buildings', 'Mana Geyser', 'current');
+  document.getElementById('apprentice_dorm').value = get_value_from_object('buildings', 'Apprentice Dorm', 'current');
+  document.getElementById('mine').value = get_value_from_object('buildings', 'Mine', 'current');
+  document.getElementById('canal').value = get_value_from_object('buildings', 'Canal', 'current');
+  document.getElementById('monstruarium').value = get_value_from_object('buildings', 'Monstruarium', 'current');
+  document.getElementById('researcher_cabin').value = get_value_from_object('buildings', 'Researcher Cabin', 'current');
+  
+  document.getElementById('furnace').value = get_value_from_object('buildings', 'Furnace', 'current');
+  document.getElementById('creature_pen').value = get_value_from_object('buildings', 'Creature Pen', 'current');
+  document.getElementById('mana_crystal').value = get_value_from_object('buildings', 'Mana Crystal', 'current');
+  document.getElementById('generator').value = get_value_from_object('buildings', 'Generator', 'current');
+  document.getElementById('researcher_villa').value = get_value_from_object('buildings', 'Researcher Villa', 'current');
+  document.getElementById('electric_drill').value = get_value_from_object('buildings', 'Electric Drill', 'current');
+  document.getElementById('electric_lamp').value = get_value_from_object('buildings', 'Electric Lamp', 'current');
+  document.getElementById('electric_sawmill').value = get_value_from_object('buildings', 'Electric Sawmill', 'current');
+  document.getElementById('electric_mana_fountain').value = get_value_from_object('buildings', 'Electric Mana Fountain', 'current');
+  document.getElementById('mana_cascade').value = get_value_from_object('buildings', 'Mana Cascade', 'current');
+  document.getElementById('mana_battery').value = get_value_from_object('buildings', 'Mana Battery', 'current');
+  document.getElementById('dimensional_artifact').value = get_value_from_object('buildings', 'Dimensional Artifact', 'current');
+
+  document.getElementById('creatures').value = get_value_from_object('creatures', 'totalCreatures');
+  document.getElementById('researchers').value = get_value_from_object('research', 'totalResearchers');
+
+  document.getElementById('conjuration_xp').value = get_value_from_object('schoolExperience', 'Conjuration');
+  document.getElementById('enchantment_xp').value = get_value_from_object('schoolExperience', 'Enchantment');
+  document.getElementById('illusion_xp').value = get_value_from_object('schoolExperience', 'Illusion');
+  document.getElementById('alchemy_xp').value = get_value_from_object('schoolExperience', 'Alchemy');
+  document.getElementById('evocation_xp').value = get_value_from_object('schoolExperience', 'Evocation');
+  document.getElementById('protection_xp').value = get_value_from_object('schoolExperience', 'Protection');
+  document.getElementById('breeding_xp').value = get_value_from_object('schoolExperience', 'Breeding');
+  document.getElementById('summoning_xp').value = get_value_from_object('schoolExperience', 'Summoning');
+  document.getElementById('divination_xp').value = get_value_from_object('schoolExperience', 'Divination');
+
+  document.getElementById('conjuration_mpl').value = get_value_from_object('global', 'maxPrimarySchoolLevels', 'Conjuration');
+  document.getElementById('enchantment_mpl').value = get_value_from_object('global', 'maxPrimarySchoolLevels', 'Enchantment');
+  document.getElementById('illusion_mpl').value = get_value_from_object('global', 'maxPrimarySchoolLevels', 'Illusion');
+  document.getElementById('alchemy_mpl').value = get_value_from_object('global', 'maxPrimarySchoolLevels', 'Alchemy');
+  document.getElementById('evocation_mpl').value = get_value_from_object('global', 'maxPrimarySchoolLevels', 'Evocation');
+  document.getElementById('protection_mpl').value = get_value_from_object('global', 'maxPrimarySchoolLevels', 'Protection');
+  document.getElementById('breeding_mpl').value = get_value_from_object('global', 'maxPrimarySchoolLevels', 'Breeding');
+  document.getElementById('summoning_mpl').value = get_value_from_object('global', 'maxPrimarySchoolLevels', 'Summoning');
+  document.getElementById('divination_mpl').value = get_value_from_object('global', 'maxPrimarySchoolLevels', 'Divination');
+
+  document.getElementById('current_hp').value = get_value_from_object('exploration', 'currentHP', '');
+
+}
+
+function extract_tfields(){
+  add_to_save(document.getElementById('stone').value, 'resources', 'Stone', 'current');
+  add_to_save(document.getElementById('stone_cap').value, 'resources', 'Stone', 'cap');
+  add_to_save(document.getElementById('wood').value, 'resources', 'Wood', 'current');
+  add_to_save(document.getElementById('wood_cap').value, 'resources', 'Wood', 'cap');
+  add_to_save(document.getElementById('iron').value, 'resources', 'Iron', 'current');
+  add_to_save(document.getElementById('iron_cap').value, 'resources', 'Iron', 'cap');
+  add_to_save(document.getElementById('water').value, 'resources', 'Water', 'current');
+  add_to_save(document.getElementById('water_cap').value, 'resources', 'Water', 'cap');
+  add_to_save(document.getElementById('monstium').value, 'resources', 'Monstium', 'current');
+  add_to_save(document.getElementById('monstium_cap').value, 'resources', 'Monstium', 'cap');
+  add_to_save(document.getElementById('coins').value, 'resources', 'Coins', 'current');
+  add_to_save(document.getElementById('coins_cap').value, 'resources', 'Coins', 'cap');
+  add_to_save(document.getElementById('mana').value, 'resources', 'Mana', 'current');
+  add_to_save(document.getElementById('mana_cap').value, 'resources', 'Mana', 'cap');
+  add_to_save(document.getElementById('time_pieces').value, 'resources', 'Time Pieces', 'current');
+  add_to_save(document.getElementById('time_pieces_cap').value, 'resources', 'Time Pieces', 'cap');
+  
+  add_to_save(document.getElementById('time_capsule').value, 'buildings', 'Time Capsule', 'current');
+  add_to_save(document.getElementById('mana_spout').value, 'buildings', 'Mana Spout', 'current');
+  add_to_save(document.getElementById('mana_shard').value, 'buildings', 'Mana Shard', 'current');
+  add_to_save(document.getElementById('lumber_yard').value, 'buildings', 'Lumber Yard', 'current');
+  add_to_save(document.getElementById('warehouse').value, 'buildings', 'Warehouse', 'current');
+  add_to_save(document.getElementById('water_tank').value, 'buildings', 'Water Tank', 'current');
+  add_to_save(document.getElementById('vault').value, 'buildings', 'Vault', 'current');
+  add_to_save(document.getElementById('mana_geyser').value, 'buildings', 'Mana Geyser', 'current');
+  add_to_save(document.getElementById('apprentice_dorm').value, 'buildings', 'Apprentice Dorm', 'current');
+  add_to_save(document.getElementById('mine').value, 'buildings', 'Mine', 'current');
+  add_to_save(document.getElementById('canal').value, 'buildings', 'Canal', 'current');
+  add_to_save(document.getElementById('monstruarium').value, 'buildings', 'Monstruarium', 'current');
+  add_to_save(document.getElementById('researcher_cabin').value, 'buildings', 'Researcher Cabin', 'current');
+  
+  add_to_save(document.getElementById('creatures').value, 'creatures', 'totalCreatures');
+  add_to_save(document.getElementById('researchers').value, 'research', 'totalResearchers');
+  
+  add_to_save(document.getElementById('conjuration_xp').value, 'schoolExperience', 'Conjuration');
+  add_to_save(document.getElementById('enchantment_xp').value, 'schoolExperience', 'Enchantment');
+  add_to_save(document.getElementById('illusion_xp').value, 'schoolExperience', 'Illusion');
+  add_to_save(document.getElementById('alchemy_xp').value, 'schoolExperience', 'Alchemy');
+  add_to_save(document.getElementById('evocation_xp').value, 'schoolExperience', 'Evocation');
+  add_to_save(document.getElementById('protection_xp').value, 'schoolExperience', 'Protection');
+  add_to_save(document.getElementById('breeding_xp').value, 'schoolExperience', 'Breeding');
+  add_to_save(document.getElementById('summoning_xp').value, 'schoolExperience', 'Summoning');
+  add_to_save(document.getElementById('divination_xp').value, 'schoolExperience', 'Divination');
+  
+  add_to_save(document.getElementById('conjuration_mpl').value, 'global', 'maxPrimarySchoolLevels', 'Conjuration');
+  add_to_save(document.getElementById('enchantment_mpl').value, 'global', 'maxPrimarySchoolLevels', 'Enchantment');
+  add_to_save(document.getElementById('illusion_mpl').value, 'global', 'maxPrimarySchoolLevels', 'Illusion');
+  add_to_save(document.getElementById('alchemy_mpl').value, 'global', 'maxPrimarySchoolLevels', 'Alchemy');
+  add_to_save(document.getElementById('evocation_mpl').value, 'global', 'maxPrimarySchoolLevels', 'Evocation');
+  add_to_save(document.getElementById('protection_mpl').value, 'global', 'maxPrimarySchoolLevels', 'Protection');
+  add_to_save(document.getElementById('breeding_mpl').value, 'global', 'maxPrimarySchoolLevels', 'Breeding');
+  add_to_save(document.getElementById('summoning_mpl').value, 'global', 'maxPrimarySchoolLevels', 'Summoning');
+  add_to_save(document.getElementById('divination_mpl').value, 'global', 'maxPrimarySchoolLevels', 'Divination');
+
+  add_to_save(document.getElementById('furnace').value, 'buildings', 'Furnace', 'current');
+  add_to_save(document.getElementById('creature_pen').value, 'buildings', 'Creature Pen', 'current');
+  add_to_save(document.getElementById('mana_crystal').value, 'buildings', 'Mana Crystal', 'current');
+  add_to_save(document.getElementById('generator').value, 'buildings', 'Generator', 'current');
+  add_to_save(document.getElementById('researcher_villa').value, 'buildings', 'Researcher Villa', 'current');
+  add_to_save(document.getElementById('electric_drill').value, 'buildings', 'Electric Drill', 'current');
+  add_to_save(document.getElementById('electric_lamp').value, 'buildings', 'Electric Lamp', 'current');
+  add_to_save(document.getElementById('electric_sawmill').value, 'buildings', 'Electric Sawmill', 'current');
+  add_to_save(document.getElementById('electric_mana_fountain').value, 'buildings', 'Electric Mana Fountain', 'current');
+  add_to_save(document.getElementById('mana_cascade').value, 'buildings', 'Mana Cascade', 'current');
+  add_to_save(document.getElementById('mana_battery').value, 'buildings', 'Mana Battery', 'current');
+  add_to_save(document.getElementById('dimensional_artifact').value, 'buildings', 'Dimensional Artifact', 'current');
+
+  add_to_save(document.getElementById('tempreature').value, 'resources', 'Temperature', 'current');
+  add_to_save(document.getElementById('tempreature_cap').value, 'resources', 'Temperature', 'cap');
+  add_to_save(document.getElementById('electricity').value, 'resources', 'Electricity', 'current');
+  add_to_save(document.getElementById('electricity_cap').value, 'resources', 'Electricity', 'cap');
+}
+
+
+function handle_import() {
         // Get the input from the first text field
         let input = document.getElementById('import_field').value;
 
         // Decode and gunzip the input
-        let result = decode_and_gunzip(input);
+        let result_json = decode_and_gunzip(input);
+		save_data = JSON.parse(result_json)
+		populate_tfields()
 
-        // Do something with the result
-		console.log(result)
       }
+	  
+
+function gzipAndEncodeString(inputString) {
+  try {
+    // Convert the input string to a Uint8Array
+    const inputData = new TextEncoder().encode(inputString);
+
+    // Compress the data using pako's deflate method
+    const compressedData = pako.gzip(inputData);
+
+    // Encode the compressed data to a base64 string
+    const base64CompressedString = uint8ArrayToBase64(compressedData);
+
+    return base64CompressedString;
+  } catch (err) {
+    console.error('Error during compression:', err);
+    return null;
+  }
+}
+
+// Helper function to convert a Uint8Array to a base64 string
+function uint8ArrayToBase64(uint8Array) {
+  const binaryString = String.fromCharCode.apply(null, uint8Array);
+  return btoa(binaryString);
+}
+
+function encode_and_gzip(input) {
+  // Gzip and encode the input
+  const gzippedAndEncoded = gzipAndEncodeString(input);
+
+  // Double encode the result using Base64
+  const doubleEncoded = btoa(gzippedAndEncoded);
+
+  return doubleEncoded;
+}
+
+function handle_export() {
+	extract_tfields();
+	//result_json = JSON.stringify(save_data);
+	result_json = JSON.stringify(save_data, (key, value) => typeof value === "number" ? value : value);
+
+	//console.log(result_json);
+	result = encode_and_gzip(result_json)
+	document.getElementById('import_field').value = result
+	
+}

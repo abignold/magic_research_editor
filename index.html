@@ -5,13 +5,16 @@
 	<script src="https://cdn.jsdelivr.net/npm/pako/dist/pako.min.js"></script>
 	<script src="js/script.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<style>
-		
-	</style>
+	<link rel="icon" type="image/png" sizes="16x16" href="\favicon.png">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  
 </head>
-<body>
+<body class="body">
 	<div class="header">
 		<h1>Magic Research Save Editor</h1>
+		<p><a href="https://mcolotto.github.io/magic-research-demo/website/">Play the game by @Maticolotto here!</a></p>
 	</div>
 	<div class="container">
 		<div class="left"></div>
@@ -19,67 +22,176 @@
 			<div class="child" style="display: flex; justify-content: center;">
 				<textarea id="import_field" name="import_field" rows="5" cols="40" placeholder="Enter text here"></textarea>
 			</div>
-			<div class="child">
-				<button class="import-button" onclick="handleImport()">Import</button>
-				<button class="export-button">Export</button>
+			<div class="child" style="display: flex; justify-content: center;">
+				<button class="import-button" onclick="handle_import()">Import</button>
+				<button class="export-button" onclick="handle_export()">Export</button>
 			</div>
 			<div class="child">
 				<div class="text-fields-container">
 					<div class="column">
-						<label for="text-field-1">Label 1:</label>
-						<input type="text" id="text-field-1">
-						<label for="text-field-2">Label 2:</label>
-						<input type="text" id="text-field-2">
-						<label for="text-field-3">Label 3:</label>
-						<input type="text" id="text-field-3">
-						<label for="text-field-4">Label 4:</label>
-						<input type="text" id="text-field-4">
-						<label for="text-field-5">Label 5:</label>
-						<input type="text" id="text-field-5">
-						<label for="text-field-6">Label 6:</label>
-						<input type="text" id="text-field-6">
+						<label id="field_label" for="stone">Stone:</label>
+						<input type="text" id="stone">
+						<label id="field_label" for="stone_cap">Stone Cap:</label>      
+						<input type="text" id="stone_cap">
+						<label id="field_label" for="wood">Wood:</label>
+						<input type="text" id="wood">
+						<label id="field_label" for="wood_cap">Wood Cap:</label>        
+						<input type="text" id="wood_cap">
+						<label id="field_label" for="iron">Iron:</label>
+						<input type="text" id="iron">
+						<label id="field_label" for="iron_cap">Iron Cap:</label>        
+						<input type="text" id="iron_cap">
+						<label id="field_label" for="water">Water:</label>
+						<input type="text" id="water">
+						<label id="field_label" for="water_cap">Water Cap:</label>      
+						<input type="text" id="water_cap">
+						<label id="field_label" for="monstium">Monstium:</label>        
+						<input type="text" id="monstium">
+						<label id="field_label" for="monstium_cap">Monstium Cap:</label>
+						<input type="text" id="monstium_cap">
+						<label id="field_label" for="coins">Coins:</label>
+						<input type="text" id="coins">
+						<label id="field_label" for="coins_cap">Coins Cap:</label>      
+						<input type="text" id="coins_cap">
+						<label id="field_label" for="tempreature">Tempreature:</label>
+						<input type="text" id="tempreature">
+						<label id="field_label" for="tempreature_cap">Tempreature Cap:</label>
+						<input type="text" id="tempreature_cap">
+						<label id="field_label" for="electricity">Electricity:</label>
+						<input type="text" id="electricity">
+						<label id="field_label" for="electricity_cap">Electricity Cap:</label>
+						<input type="text" id="electricity_cap">
+						<label id="field_label" for="mana">Mana:</label>
+						<input type="text" id="mana">
+						<label id="field_label" for="mana_cap">Mana Cap:</label>        
+						<input type="text" id="mana_cap">
+						<label id="field_label" for="current_hp">Current HP:</label>
+						<input type="text" id="current_hp">
+						<label id="field_label" for="time_pieces">Time Pieces:</label>
+						<input type="text" id="time_pieces">
+						<label id="field_label" for="time_pieces_cap">Time Pieces Cap:</label>
+						<input type="text" id="time_pieces_cap">
+						<label id="field_label" for="time_capsule">Time Capsule:</label>
+						<input type="text" id="time_capsule">
+						<label id="field_label" for="creatures">Creatures:</label>
+						<input type="text" id="creatures">
+
+						<label id="field_label" for="researchers">Researchers:</label>
+						<input type="text" id="researchers">
 					</div>
 					<div class="column">
-						<label for="text-field-7">Label 7:</label>
-						<input type="text" id="text-field-7">
-						<label for="text-field-8">Label 8:</label>
-						<input type="text" id="text-field-8">
-						<label for="text-field-9">Label 9:</label>
-						<input type="text" id="text-field-9">
-						<label for="text-field-10">Label 10:</label>
-						<input type="text" id="text-field-10">
-						<label for="text-field-11">Label 11:</label>
-						<input type="text" id="text-field-11">
-						<label for="text-field-12">Label 12:</label>
-						<input type="text" id="text-field-12">
+						<label id="field_label" for="mana_spout">Mana Spout:</label>
+						<input type="text" id="mana_spout">
+
+						<label id="field_label" for="furnace">Furnace:</label>
+						<input type="text" id="furnace">
+
+						<label id="field_label" for="creature_pen">Creature Pen:</label>
+						<input type="text" id="creature_pen">
+
+						<label id="field_label" for="mana_crystal">Mana Crystal:</label>
+						<input type="text" id="mana_crystal">
+
+						<label id="field_label" for="generator">Generator:</label>
+						<input type="text" id="generator">
+
+						<label id="field_label" for="researcher_villa">Researcher Villa:</label>
+						<input type="text" id="researcher_villa">
+
+						<label id="field_label" for="electric_drill">Electric Drill:</label>
+						<input type="text" id="electric_drill">
+
+						<label id="field_label" for="electric_lamp">Electric Lamp:</label>
+						<input type="text" id="electric_lamp">
+
+						<label id="field_label" for="electric_sawmill">Electric Sawmill:</label>
+						<input type="text" id="electric_sawmill">
+
+						<label id="field_label" for="electric_mana_fountain">Electric Mana Fountain:</label>
+						<input type="text" id="electric_mana_fountain">
+
+						<label id="field_label" for="mana_cascade">Mana Cascade:</label>
+						<input type="text" id="mana_cascade">
+
+						<label id="field_label" for="mana_battery">Mana Battery:</label>
+						<input type="text" id="mana_battery">
+
+						<label id="field_label" for="dimensional_artifact">Dimensional Artifact:</label>
+						<input type="text" id="dimensional_artifact">
+
+						<label id="field_label" for="mana_shard">Mana Shard:</label>
+						<input type="text" id="mana_shard">
+
+						<label id="field_label" for="lumber_yard">Lumber Yard:</label>
+						<input type="text" id="lumber_yard">
+
+						<label id="field_label" for="warehouse">Warehouse:</label>
+						<input type="text" id="warehouse">
+
+						<label id="field_label" for="water_tank">Water Tank:</label>
+						<input type="text" id="water_tank">
+
+						<label id="field_label" for="vault">Vault:</label>
+						<input type="text" id="vault">
+
+						<label id="field_label" for="mana_geyser">Mana Geyser:</label>
+						<input type="text" id="mana_geyser">
+
+						<label id="field_label" for="apprentice_dorm">Apprentice Dorm:</label>
+						<input type="text" id="apprentice_dorm">
+
+						<label id="field_label" for="mine">Mine:</label>
+						<input type="text" id="mine">
+
+						<label id="field_label" for="canal">Canal:</label>
+						<input type="text" id="canal">
+
+						<label id="field_label" for="monstruarium">Monstruarium:</label>
+						<input type="text" id="monstruarium">
+
+						<label id="field_label" for="researcher_cabin">Researcher Cabin:</label>
+						<input type="text" id="researcher_cabin">
+
 					</div>
 					<div class="column">
-						<label for="text-field-13">Label 13:</label>
-						<input type="text" id="text-field-13">
-						<label for="text-field-14">Label 14:</label>
-						<input type="text" id="text-field-14">
-						<label for="text-field-15">Label 15:</label>
-						<input type="text" id="text-field-15">
-						<label for="text-field-16">Label 16:</label>
-						<input type="text" id="text-field-16">
-						<label for="text-field-17">Label 17:</label>
-						<input type="text" id="text-field-17">
-						<label for="text-field-18">Label 18:</label>
-						<input type="text" id="text-field-18">
-					</div>
-					<div class="column">
-						<label for="text-field-13">Label 13:</label>
-						<input type="text" id="text-field-13">
-						<label for="text-field-14">Label 14:</label>
-						<input type="text" id="text-field-14">
-						<label for="text-field-15">Label 15:</label>
-						<input type="text" id="text-field-15">
-						<label for="text-field-16">Label 16:</label>
-						<input type="text" id="text-field-16">
-						<label for="text-field-17">Label 17:</label>
-						<input type="text" id="text-field-17">
-						<label for="text-field-18">Label 18:</label>
-						<input type="text" id="text-field-18">
+						<label id="field_label" for="conjuration_xp">Conjuration XP:</label>
+						<input type="text" id="conjuration_xp">
+						<label id="field_label" for="enchantment_xp">Enchantment XP:</label>
+						<input type="text" id="enchantment_xp">
+						<label id="field_label" for="illusion_xp">Illusion XP:</label>
+						<input type="text" id="illusion_xp">
+						<label id="field_label" for="alchemy_xp">Alchemy XP:</label>
+						<input type="text" id="alchemy_xp">
+						<label id="field_label" for="evocation_xp">Evocation XP:</label>
+						<input type="text" id="evocation_xp">
+						<label id="field_label" for="protection_xp">Protection XP:</label>
+						<input type="text" id="protection_xp">
+						<label id="field_label" for="breeding_xp">Breeding XP:</label>
+						<input type="text" id="breeding_xp">
+						<label id="field_label" for="summoning_xp">Summoning XP:</label>
+						<input type="text" id="summoning_xp">
+						<label id="field_label" for="divination_xp">Divination XP:</label>
+						<input type="text" id="divination_xp">
+					<!-- </div>
+					<div class="column"> -->
+						<label id="field_label" for="conjuration_mpl">Conjuration MPL:</label>
+						<input type="text" id="conjuration_mpl">
+						<label id="field_label" for="enchantment_mpl">Enchantment MPL:</label>
+						<input type="text" id="enchantment_mpl">
+						<label id="field_label" for="illusion_mpl">Illusion MPL:</label>
+						<input type="text" id="illusion_mpl">
+						<label id="field_label" for="alchemy_mpl">Alchemy MPL:</label>
+						<input type="text" id="alchemy_mpl">
+						<label id="field_label" for="evocation_mpl">Evocation MPL:</label>
+						<input type="text" id="evocation_mpl">
+						<label id="field_label" for="protection_mpl">Protection MPL:</label>
+						<input type="text" id="protection_mpl">
+						<label id="field_label" for="breeding_mpl">Breeding MPL:</label>
+						<input type="text" id="breeding_mpl">
+						<label id="field_label" for="summoning_mpl">Summoning MPL:</label>
+						<input type="text" id="summoning_mpl">
+						<label id="field_label" for="divination_mpl">Divination MPL:</label>
+						<input type="text" id="divination_mpl">
 					</div>
 				</div>
 			</div>
@@ -87,7 +199,8 @@
 		<div class="right"></div>
 	</div>
 	<div class="footer">
-		<p>&copy; 2023 Magic Research. All rights reserved.</p>
+		<p>&copy; 2023 Adam Bignold. All rights reserved.</p>
+		<p>Support me at <a href='patreon.com/AdamBignold'>Patreon</a> | Contact me at <a href='https://twitter.com/drbignold'>Twitter</a></p>
 	</div>
 	
 </body>
